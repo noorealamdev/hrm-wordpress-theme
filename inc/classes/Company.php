@@ -140,7 +140,6 @@ if ( ! class_exists( 'Hrm_Company' ) ) {
 					'email'       => $company_email,
 					'phone'       => $company_phone,
 					'country'     => $company_country,
-					'created_at'  => current_time('mysql', false),
 				];
 
 				$where = [ 'id' => $company_id ];
