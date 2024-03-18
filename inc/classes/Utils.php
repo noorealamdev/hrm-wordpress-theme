@@ -298,7 +298,7 @@ if ( ! class_exists( 'Hrm_Utils' ) ) {
 		/**
 		 * Get page by title
 		 */
-		protected function get_page_by_title( $page_title, $output = OBJECT, $post_type = 'page' ) {
+		private static function get_page_by_title( $page_title, $output = OBJECT, $post_type = 'page' ) {
 			global $wpdb;
 			if ( is_array( $post_type ) ) {
 				$post_type           = esc_sql( $post_type );
@@ -414,7 +414,7 @@ if ( ! class_exists( 'Hrm_Utils' ) ) {
 		 * If not logged in, redirect user to login page
 		 */
 		public static function redirect_to_login_page() {
-			$page = Hrm_Utils::get_page_by_title('Login');
+			$page = self::get_page_by_title('Login');
 			if ( $page->ID ) {
 				wp_redirect(get_permalink($page->ID));
 				exit();

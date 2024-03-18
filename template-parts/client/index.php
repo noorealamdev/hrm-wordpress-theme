@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-if ( ! is_user_logged_in() ) Hrm_Utils::redirect_to_login_page();
+if ( Hrm_Utils::current_user_role() !== 'administrator' ) Hrm_Utils::redirect_to_login_page();
 
 
 if ( isset( $_GET['edit_client'], $_GET['client_id'] ) && $_GET['edit_client'] == 'true' ) {
